@@ -1,2 +1,2 @@
-# docker-n3o4j
+# docker-neo4j
 Neo4j Image
