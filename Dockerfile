@@ -12,3 +12,4 @@ VOLUME "/usr/share/neo4j/data/"
 ADD etc/neo4j/neo4j-server.properties /etc/neo4j/neo4j-server.properties
 ADD opt/qnib/bin/start_neo4j.sh /opt/qnib/bin/start_neo4j.sh
 ADD etc/supervisord.d/neo4j.ini /etc/supervisord.d/neo4j.ini
+ADD etc/consul.d/check_neo4j.json /etc/consul.d/

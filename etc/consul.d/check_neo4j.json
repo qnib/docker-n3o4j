@@ -1,0 +1,10 @@
+{
+  "service": {
+    "name": "neo4j",
+    "port": 7474,
+    "check": {
+      "script": "nmap 127.0.0.1 -Pn -p 7474 | grep open",
+      "interval": "10s"
+    }
+  }
+}
