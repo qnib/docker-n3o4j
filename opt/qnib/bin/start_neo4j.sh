@@ -2,7 +2,7 @@
 
 USAGE="Usage: $0 -p <pidfile>"
 NEO4J_HOME=/usr/share/neo4j
-PID_FILE=/var/run/neo4j.pid
+PID_FILE=/usr/share/neo4j/data/neo4j-service.pid
 mkdir -p $NEO4J_HOME/data/graph.db
 
 cd $NEO4J_HOME
@@ -41,22 +41,12 @@ function enable_index {
 }
 
 function stop () {
-  PID=$(cat ${PID_FILE})
-  kill -9 ${PID}
+  /usr/share/neo4j/bin/neo4j stop
 }
 
 trap stop SIGTERM
 
-CLASSPATH=`find $NEO4J_HOME -name '*.jar' | xargs echo | tr ' ' ':'`
-
-java -cp "${CLASSPATH}" \
-        -Dneo4j.home="${NEO4J_HOME}" \
-        -Dfile.encoding=UTF-8 \
-        -Dorg.neo4j.server.properties=conf/neo4j-server.properties \
-        org.neo4j.server.Bootstrapper &
-echo $! > "${PID_FILE}"
-
-wait_running
+/usr/share/neo4j/bin/neo4j start
 enable_index
 
 watch_pid

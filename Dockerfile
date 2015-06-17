@@ -4,7 +4,7 @@ MAINTAINER "Christian Kniep <christian@qnib.org>"
 
 RUN rpm --import http://debian.neo4j.org/neotechnology.gpg.key
 ADD etc/yum.repos.d/neo4j.repo /etc/yum.repos.d/neo4j.repo
-RUN yum install -y neo4j
+RUN yum install -y neo4j lsof
 
 VOLUME "/usr/share/neo4j/data/"
 
