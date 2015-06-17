@@ -1,5 +1,5 @@
 ###### QNIBng image
-FROM qnib/terminal
+FROM qnib/terminal:light
 MAINTAINER "Christian Kniep <christian@qnib.org>"
 
 RUN rpm --import http://debian.neo4j.org/neotechnology.gpg.key
